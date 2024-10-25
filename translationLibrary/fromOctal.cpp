@@ -1,26 +1,25 @@
-#include "fromOctal.h"
+#include "pch.h"
 
 
-std::string octalToBinary(std::string octalNumber) {
-	int demical = std::stoi(octalNumber, nullptr, 8);
-
-	std::string binary = std::bitset<32>(demical).to_string();
-
-	return binary.substr(binary.find('1'));
+const char* octalToBinary(const char* octalNumber) {
+    static std::string binary;
+    int decimal = std::stoi(octalNumber, nullptr, 8);
+    binary = std::bitset<32>(decimal).to_string();
+    return binary.c_str();
 }
 
-std::string octalToDemical(std::string octalNumber) {
-	int demical = std::stoi(octalNumber, nullptr, 8);
-
-	return std::to_string(demical);
+const char* octalToDemical(const char* octalNumber) {
+    static std::string decimal_str;
+    int decimal = std::stoi(octalNumber, nullptr, 8);
+    decimal_str = std::to_string(decimal);
+    return decimal_str.c_str();
 }
 
-std::string decimalToHexadecimal(std::string octalNumber) {
-	int demical = std::stoi(octalNumber, nullptr, 8);
-
-	std::stringstream hexadecimal;
-
-	hexadecimal << std::hex << demical;
-
-	return hexadecimal.str();
+const char* decimalToHexadecimal(const char* octalNumber) {
+    static std::string hexadecimal_str;
+    int decimal = std::stoi(octalNumber, nullptr, 8);
+    std::stringstream hexadecimal;
+    hexadecimal << std::hex << decimal;
+    hexadecimal_str = hexadecimal.str();
+    return hexadecimal_str.c_str();
 }

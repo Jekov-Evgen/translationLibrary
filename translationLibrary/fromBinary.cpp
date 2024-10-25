@@ -1,25 +1,32 @@
-#include "fromBinary.h"
+#include "pch.h"
 
-std::string binaryToDecimal(std::string binaryNumber) {
-    int demical = std::stoi(binaryNumber, nullptr, 2);
+const char* binaryToDecimal(const char* binaryNumber) {
+    int decimal = std::stoi(binaryNumber, nullptr, 2);
+    std::string decimal_str = std::to_string(decimal);
 
-    return std::to_string(demical);
+    char* result = new char[decimal_str.size() + 1];
+    strcpy_s(result, decimal_str.size() + 1, decimal_str.c_str());
+    return result;
 }
 
-std::string binaryToOctal(std::string binaryNumber) {
-    int demical = std::stoi(binaryNumber, nullptr, 2);
+const char* binaryToOctal(const char* binaryNumber) {
+    int decimal = std::stoi(binaryNumber, nullptr, 2);
     std::stringstream octal;
+    octal << std::oct << decimal;
+    std::string octal_str = octal.str();
 
-    octal << std::oct << demical;
-
-    return octal.str();
+    char* result = new char[octal_str.size() + 1];
+    strcpy_s(result, octal_str.size() + 1, octal_str.c_str()); 
+    return result;
 }
 
-std::string binaryToHexadecimal(std::string binaryNumber) {
-    int demical = std::stoi(binaryNumber, nullptr, 2);
+const char* binaryToHexadecimal(const char* binaryNumber) {
+    int decimal = std::stoi(binaryNumber, nullptr, 2);
     std::stringstream hexadecimal;
+    hexadecimal << std::hex << decimal;
+    std::string hex_str = hexadecimal.str();
 
-    hexadecimal << std::hex << demical;
-
-    return hexadecimal.str();
+    char* result = new char[hex_str.size() + 1];
+    strcpy_s(result, hex_str.size() + 1, hex_str.c_str()); // ”казываем размер буфера
+    return result;
 }

@@ -1,27 +1,34 @@
-#include "fromDecimal.h"
+#include "pch.h"
 
 
-std::string fromDecimalToBinary(std::string decimalNumber) {
-	int conversionToNumber = std::stoi(decimalNumber);
-	std::string binary = std::bitset<32>(conversionToNumber).to_string();
+const char* fromDecimalToBinary(const char* decimalNumber) {
+    int decimal = std::stoi(decimalNumber);
+    std::string binary_str = std::bitset<32>(decimal).to_string();
+    binary_str = binary_str.substr(binary_str.find('1')); 
 
-	return binary.substr(binary.find('1'));
+    char* result = new char[binary_str.size() + 1];
+    strcpy_s(result, binary_str.size() + 1, binary_str.c_str()); 
+    return result;
 }
 
-std::string fromDecimalToOctal(std::string decimalNumber) {
-	int decimal = std::stoi(decimalNumber);
-	std::stringstream octal;
+const char* fromDecimalToOctal(const char* decimalNumber) {
+    int decimal = std::stoi(decimalNumber);
+    std::stringstream octal;
+    octal << std::oct << decimal;
+    std::string octal_str = octal.str();
 
-	octal << std::oct << decimal;
-
-	return octal.str();
+    char* result = new char[octal_str.size() + 1];
+    strcpy_s(result, octal_str.size() + 1, octal_str.c_str()); 
+    return result;
 }
 
-std::string decimalToHexadecimal(std::string decimalNumber) {
-	int decimal = std::stoi(decimalNumber);
-	std::stringstream hexadecimal;
+const char* decimalToHexadecimal(const char* decimalNumber) {
+    int decimal = std::stoi(decimalNumber);
+    std::stringstream hexadecimal;
+    hexadecimal << std::hex << decimal;
+    std::string hex_str = hexadecimal.str();
 
-	hexadecimal << std::hex << decimal;
-
-	return hexadecimal.str();
+    char* result = new char[hex_str.size() + 1];
+    strcpy_s(result, hex_str.size() + 1, hex_str.c_str());
+    return result;
 }

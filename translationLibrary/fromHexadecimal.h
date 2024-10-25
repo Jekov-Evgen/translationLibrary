@@ -3,7 +3,8 @@
 #include <string>
 #include <sstream>
 #include <bitset>
+#include <cstring>
 
-std::string hexadecimalToBinary(std::string);
-std::string hexadecimalToOctal(std::string);
-std::string hexadecimalToDecimal(std::string);
+const char* hexadecimalToBinary(const char*);
+const char* hexadecimalToOctal(const char*);
+const char* hexadecimalToDecimal(const char*);

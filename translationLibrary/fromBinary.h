@@ -1,8 +1,9 @@
 #pragma once
 #include <string>
 #include <sstream>
+#include <cstring>
 
 
-std::string binaryToDecimal(std::string);
-std::string binaryToOctal(std::string);
-std::string binaryToHexadecimal(std::string);
+const char* binaryToDecimal(const char*);
+const char* binaryToOctal(const char*);
+const char* binaryToHexadecimal(const char*);
