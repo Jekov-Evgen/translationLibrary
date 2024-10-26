@@ -7,4 +7,4 @@
 
 const char* octalToBinary(const char*);
 const char* octalToDemical(const char*);
-const char* decimalToHexadecimal(const char*);
+const char* octalToHexadecimal(const char*);

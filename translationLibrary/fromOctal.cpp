@@ -15,7 +15,7 @@ const char* octalToDemical(const char* octalNumber) {
     return decimal_str.c_str();
 }
 
-const char* decimalToHexadecimal(const char* octalNumber) {
+const char* octalToHexadecimal(const char* octalNumber) {
     static std::string hexadecimal_str;
     int decimal = std::stoi(octalNumber, nullptr, 8);
     std::stringstream hexadecimal;
